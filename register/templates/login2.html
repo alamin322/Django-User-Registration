@@ -1,0 +1,80 @@
+{% extends 'base2.html' %}
+{% block extra_css %}
+<style>
+    html,
+    body {
+        height: 100%;
+    }
+
+    body {
+        background-image: url(../static/images/img.jpg);
+        background-size: cover;
+    }
+
+    .form-login {
+        background-color: rgba(240, 250, 210, 0.35);
+        border-radius: 10px;
+        color: #fff;
+        padding: 20px;
+        max-width: 450px;
+        width: 100%;
+        margin: auto;
+    }
+.from-div {
+    margin-top: 260px;
+}
+    .btn-primary:hover {
+        background: orange !important;
+    }
+</style>
+
+{% endblock extra_css %}
+
+
+{% block title %}Login Page{% endblock title %}
+
+{% block content %}
+
+
+<div class="from-div">
+    <form method="post" action="{% url 'login' %}" class="form-login">
+
+        <h3 class="text-center">LogIn Form</h3>
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Username</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" name="username" aria-describedby="userHelp"
+                required>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" name="password" id="exampleInputPassword1" required>
+        </div>
+        <button type="submit" class="btn btn-primary">LogIn</button>
+
+    </form>
+</div>
+
+{% comment %} <form class="form-login" action="" method="">
+    <h3 class="text-center">LogIn Form</h3>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+            placeholder="Enter your valid Email" required>
+        <div id="emailHelp" class="form-text text-light">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter your password"
+            required>
+    </div>
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Remember me</label>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Submit</button>
+</form> {% endcomment %}
+
+{% endblock content %}
+
+{% block active %}active{% endblock active %}

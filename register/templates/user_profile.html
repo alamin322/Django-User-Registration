@@ -1,0 +1,93 @@
+{% extends 'base2.html' %}
+
+{% block extra_css %}
+<style>
+    html,
+    body {
+        height: 100%;
+    }
+
+    body {
+        background-image: url(../static/images/img.jpg);
+        background-size: cover;
+    }
+
+    .user-profile {
+        background-color: rgba(240, 250, 210, 0.35);
+        border-radius: 10px;
+        color: #fff;
+        padding: 20px;
+        max-width: 450px;
+        width: 100%;
+        margin: auto;
+    }
+.form-div {
+    margin-top: 200px;
+}
+    .btn-primary:hover {
+        background: orange !important;
+    }
+</style>
+
+{% endblock extra_css %}
+
+{% block title %}Profile Page{% endblock title %}
+
+{% block content %}
+
+{% comment %} <div class="container my-5 d-flex justify-content-center">
+    <div class="row">
+        <div class="col">
+            <h4 class="text-center alert alert-info">Eidt your profile information</h4>
+            <form action="" method="POST" enctype="multipart/form-data" novalidate>
+                {% csrf_token %}
+                {% if form.non_field_errors %}
+                    {% for error in form.non_field_errors %}
+                        <p>{{error}}</p>
+                    {% endfor %}
+                {% endif %}
+                {% for fm in user_form %}
+                    <div class="mb-3">
+                        {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
+                    </div> 
+                {% endfor %}
+                {% for fm in profile_form %}
+                    <div class="mb-3">
+                        {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
+                    </div> 
+                {% endfor %}
+                <button type="submit" class="btn btn-primary btn-sm mt-2">UpdateProfile</button>
+        
+            </form>
+        </div>
+    </div>
+</div> {% endcomment %}
+
+
+<div class="form-div">
+
+            <form class="user-profile" action="" method="post" enctype="multipart/form-data" novalidate>
+                <h4 class="text-center">Eidt your profile information</h4>
+                {% csrf_token %}
+                {% if form.non_field_errors %}
+                    {% for error in form.non_field_errors %}
+                        <p>{{error}}</p>
+                    {% endfor %}
+                {% endif %}
+                {% for fm in user_form %}
+                    <div class="mb-3">
+                        {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
+                    </div> 
+                {% endfor %}
+                {% for fm in profile_form %}
+                    <div class="mb-3">
+                        {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
+                    </div> 
+                {% endfor %}
+                <button type="submit" class="btn btn-primary btn-sm mt-2">UpdateProfile</button>
+        
+            </form>
+</div>
+
+
+{% endblock content %}
